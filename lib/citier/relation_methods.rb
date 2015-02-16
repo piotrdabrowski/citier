@@ -71,26 +71,26 @@ module ActiveRecord
       
       return records
     end
-    
-    alias_method :relation_apply_finder_options, :apply_finder_options
-    def apply_finder_options(options)
-      return relation_apply_finder_options(options) if !@klass.acts_as_citier?
-      
-      relation = self
-      
-      # With option :no_children set to true, only records of type self will be returned. 
-      # So Root.all(:no_children => true) won't return Child records.
-      no_children = options.delete(:no_children)
-      if no_children
-        relation = clone
 
-        c = @klass
-        
-        self_type = c.superclass == ActiveRecord::Base ? nil : c.name
-        relation = relation.where(:type => self_type)
-      end
+    #alias_method :relation_apply_finder_options, :apply_finder_options
+    # def apply_finder_options(options)
+    #   return relation_apply_finder_options(options) if !@klass.acts_as_citier?
       
-      relation.relation_apply_finder_options(options)
-    end
+    #   relation = self
+      
+    #   # With option :no_children set to true, only records of type self will be returned. 
+    #   # So Root.all(:no_children => true) won't return Child records.
+    #   no_children = options.delete(:no_children)
+    #   if no_children
+    #     relation = clone
+
+    #     c = @klass
+        
+    #     self_type = c.superclass == ActiveRecord::Base ? nil : c.name
+    #     relation = relation.where(:type => self_type)
+    #   end
+      
+    #   relation.relation_apply_finder_options(options)
+    # end
   end
 end
