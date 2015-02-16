@@ -64,7 +64,7 @@ module Citier
           ##
 
           # If there are attributes for the current class (unique & not inherited), save current model
-          if !attributes_for_current.empty?
+          if !attributes_for_current.empty? || new_record?
             current = self.class::Writable.new
         
             current.force_attributes(attributes_for_current, :merge => true)
