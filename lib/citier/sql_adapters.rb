@@ -35,7 +35,7 @@ unless defined?(JRUBY_VERSION)
         end
       end
     end
-  rescue Gem::LoadError
+  rescue LoadError
     # not installed
   end
 
@@ -126,7 +126,7 @@ unless defined?(JRUBY_VERSION)
         end
       end
     end
-  rescue Gem::LoadError
+  rescue LoadError
     # not installed
   end
 
@@ -164,7 +164,7 @@ if defined?(JRUBY_VERSION)
         end
       end
     end
-  rescue Gem::LoadError
+  rescue LoadError
     # not installed
   end
 
@@ -239,7 +239,7 @@ if defined?(JRUBY_VERSION)
         end
       end
     end
-  rescue Gem::LoadError
+  rescue LoadError
     # not installed
   end
 
