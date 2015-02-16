@@ -30,9 +30,13 @@ module Citier
     
           #create a new instance of the superclass, passing the inherited attributes.
           parent = self.class.superclass.new
-      
+
           parent.force_attributes(attributes_for_parent, :merge => true)
-          changed_attributes_for_parent["id"] = 0 # We need to change at least something to force a timestamps update.
+          if (changed_attributes_for_current.keys + changed_attributes_for_parent.keys).empty?
+            return true
+          else
+            changed_attributes_for_parent['updated_at'] = Time.now
+          end
           parent.force_changed_attributes(changed_attributes_for_parent)
       
           parent.id = self.id if id
