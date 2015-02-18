@@ -1,3 +1,20 @@
+This is a CITIER fork in order to make it work in rails 4.
+
+The CITIER git tree can be found at: https://github.com/petehamilton/citier
+
+Changes:
+- force save if attrs for current empty or new record?
+- commented relation_apply_finder_options
+- changed Gem::LoadError to LoadError
+
+Bugs:
+- making changes in nested objects without modifing current object attributes doesn't save any changes
+
+
+Documentation from https://github.com/petehamilton/citier
+
+======================================================================================================
+
 CITIER
 ======
 
