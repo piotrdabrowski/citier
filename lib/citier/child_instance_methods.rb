@@ -35,10 +35,10 @@ module Citier
           if (changed_attributes_for_current.keys + changed_attributes_for_parent.keys).empty?
             return true
           else
-            changed_attributes_for_parent['updated_at'] = Time.now
+            parent.updated_at = Time.now
           end
           parent.force_changed_attributes(changed_attributes_for_parent)
-      
+
           parent.id = self.id if id
           parent.type = self.type
     
